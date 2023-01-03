@@ -1,4 +1,4 @@
---2.1. Створити таблицю описів атрибутних типів.
+--2.1. РЎС‚РІРѕСЂРёС‚Рё С‚Р°Р±Р»РёС†СЋ РѕРїРёСЃС–РІ Р°С‚СЂРёР±СѓС‚РЅРёС… С‚РёРїС–РІ.
 CREATE TABLE ATTRTYPE (
     ATTR_ID      		NUMBER(25),
     OBJECT_TYPE_ID 		NUMBER(25),
@@ -20,30 +20,30 @@ ALTER TABLE ATTRTYPE ADD CONSTRAINT ATTRTYPE_OBJECT_TYPE_ID_REF_FK
 Table altered.
 */
 
---2.2 Для раніше використаних класів UML-діаграми заповнити описи атрибутних типів.
+--2.2 Р”Р»СЏ СЂР°РЅС–С€Рµ РІРёРєРѕСЂРёСЃС‚Р°РЅРёС… РєР»Р°СЃС–РІ UML-РґС–Р°РіСЂР°РјРё Р·Р°РїРѕРІРЅРёС‚Рё РѕРїРёСЃРё Р°С‚СЂРёР±СѓС‚РЅРёС… С‚РёРїС–РІ.
 INSERT INTO ATTRTYPE (ATTR_ID,OBJECT_TYPE_ID,OBJECT_TYPE_ID_REF,CODE,NAME) 
-	VALUES (1,1,NULL,'Serv_id','Номер_послуги');
+	VALUES (1,1,NULL,'Serv_id','РќРѕРјРµСЂ_РїРѕСЃР»СѓРіРё');
 INSERT INTO ATTRTYPE (ATTR_ID,OBJECT_TYPE_ID,OBJECT_TYPE_ID_REF,CODE,NAME) 
-	VALUES (2,1,NULL,'Serv_name','Назва_послуги');
+	VALUES (2,1,NULL,'Serv_name','РќР°Р·РІР°_РїРѕСЃР»СѓРіРё');
     
 INSERT INTO ATTRTYPE (ATTR_ID,OBJECT_TYPE_ID,OBJECT_TYPE_ID_REF,CODE,NAME) 
-	VALUES (3,2,NULL,'List_id','Номер_послуги_із_списку'); 
+	VALUES (3,2,NULL,'List_id','РќРѕРјРµСЂ_РїРѕСЃР»СѓРіРё_С–Р·_СЃРїРёСЃРєСѓ'); 
 INSERT INTO ATTRTYPE (ATTR_ID,OBJECT_TYPE_ID,OBJECT_TYPE_ID_REF,CODE,NAME) 
-	VALUES (4,2,1,'Service_name','Назва_послуги_із_списку');
+	VALUES (4,2,1,'Service_name','РќР°Р·РІР°_РїРѕСЃР»СѓРіРё_С–Р·_СЃРїРёСЃРєСѓ');
 INSERT INTO ATTRTYPE (ATTR_ID,OBJECT_TYPE_ID,OBJECT_TYPE_ID_REF,CODE,NAME) 
-	VALUES (5,2,NULL,'Service_price','Вартість');  
+	VALUES (5,2,NULL,'Service_price','Р’Р°СЂС‚С–СЃС‚СЊ');  
 INSERT INTO ATTRTYPE (ATTR_ID,OBJECT_TYPE_ID,OBJECT_TYPE_ID_REF,CODE,NAME) 
-	VALUES (6,2,NULL,'Service_implementer','Номер_викон._співроб.');
+	VALUES (6,2,NULL,'Service_implementer','РќРѕРјРµСЂ_РІРёРєРѕРЅ._СЃРїС–РІСЂРѕР±.');
 
 INSERT INTO ATTRTYPE (ATTR_ID,OBJECT_TYPE_ID,OBJECT_TYPE_ID_REF,CODE,NAME) 
-	VALUES (7,3,NULL,'Reg_id','Номер_запису');
+	VALUES (7,3,NULL,'Reg_id','РќРѕРјРµСЂ_Р·Р°РїРёСЃСѓ');
 INSERT INTO ATTRTYPE (ATTR_ID,OBJECT_TYPE_ID,OBJECT_TYPE_ID_REF,CODE,NAME) 
-	VALUES (8,3,NULL,'Reg_Client','Записаний_клієнт');
+	VALUES (8,3,NULL,'Reg_Client','Р—Р°РїРёСЃР°РЅРёР№_РєР»С–С”РЅС‚');
 INSERT INTO ATTRTYPE (ATTR_ID,OBJECT_TYPE_ID,OBJECT_TYPE_ID_REF,CODE,NAME) 
-	VALUES (9,3,NULL,'Service_for_registration','Послуга_із_запису');
+	VALUES (9,3,NULL,'Service_for_registration','РџРѕСЃР»СѓРіР°_С–Р·_Р·Р°РїРёСЃСѓ');
     
 
---2.3 Отримати інформацію про атрибутні типи.
+--2.3 РћС‚СЂРёРјР°С‚Рё С–РЅС„РѕСЂРјР°С†С–СЋ РїСЂРѕ Р°С‚СЂРёР±СѓС‚РЅС– С‚РёРїРё.
 SELECT O.CODE,A.ATTR_ID,A.CODE,A.NAME
 	FROM OBJTYPE O, ATTRTYPE A
 	WHERE O.OBJECT_TYPE_ID = A.OBJECT_TYPE_ID
@@ -52,35 +52,35 @@ SELECT O.CODE,A.ATTR_ID,A.CODE,A.NAME
 /*
 CODE        ATTR_ID CODE       NAME
 ---------- -------- ---------- --------------------
-Services          1 Serv_id    Номер_послуги
+Services          1 Serv_id    РќРѕРјРµСЂ_РїРѕСЃР»СѓРіРё
 
-Services          2 Serv_name  Назва_послуги
+Services          2 Serv_name  РќР°Р·РІР°_РїРѕСЃР»СѓРіРё
 
-List_Of_Se        3 List_id    Номер_послуги_із_спи
-rvices                         ску
+List_Of_Se        3 List_id    РќРѕРјРµСЂ_РїРѕСЃР»СѓРіРё_С–Р·_СЃРїРё
+rvices                         СЃРєСѓ
 
-List_Of_Se        4 Service_na Назва_послуги_із_спи
-rvices              me         ску
+List_Of_Se        4 Service_na РќР°Р·РІР°_РїРѕСЃР»СѓРіРё_С–Р·_СЃРїРё
+rvices              me         СЃРєСѓ
 
-List_Of_Se        5 Service_pr Вартість
+List_Of_Se        5 Service_pr Р’Р°СЂС‚С–СЃС‚СЊ
 rvices              ice
 
-List_Of_Se        6 Service_im Номер_викон._співроб.
+List_Of_Se        6 Service_im РќРѕРјРµСЂ_РІРёРєРѕРЅ._СЃРїС–РІСЂРѕР±.
 rvices              plementer  
 
-Registrati        7 Reg_id     Номер_запису
+Registrati        7 Reg_id     РќРѕРјРµСЂ_Р·Р°РїРёСЃСѓ
 on
 
-Registratio       8 Reg_Client Записаний_клієнт
+Registratio       8 Reg_Client Р—Р°РїРёСЃР°РЅРёР№_РєР»С–С”РЅС‚
 on
 
-Registratio       9 Service_fo Послуга_із_запису
+Registratio       9 Service_fo РџРѕСЃР»СѓРіР°_С–Р·_Р·Р°РїРёСЃСѓ
 on                  r_registra
                     tion
 */
 
---2.4 Отримати інформацію про атрибутні типи та можливі зв'язки між ними типу 
--- «іменована асоціація».
+--2.4 РћС‚СЂРёРјР°С‚Рё С–РЅС„РѕСЂРјР°С†С–СЋ РїСЂРѕ Р°С‚СЂРёР±СѓС‚РЅС– С‚РёРїРё С‚Р° РјРѕР¶Р»РёРІС– Р·РІ'СЏР·РєРё РјС–Р¶ РЅРёРјРё С‚РёРїСѓ 
+-- В«С–РјРµРЅРѕРІР°РЅР° Р°СЃРѕС†С–Р°С†С–СЏВ».
 SELECT O.CODE,
     A.ATTR_ID,
     A.CODE,
@@ -96,29 +96,29 @@ SELECT O.CODE,
 /*
 CODE        ATTR_ID CODE       NAME                 O_REF
 ---------- -------- ---------- -------------------- --------------------
-Services          1 Serv_id    Номер_послуги
+Services          1 Serv_id    РќРѕРјРµСЂ_РїРѕСЃР»СѓРіРё
 
-Services          2 Serv_name  Назва_послуги
+Services          2 Serv_name  РќР°Р·РІР°_РїРѕСЃР»СѓРіРё
 
-List_Of_Se        3 List_id    Номер_послуги_із_спи
-rvices                         ску
+List_Of_Se        3 List_id    РќРѕРјРµСЂ_РїРѕСЃР»СѓРіРё_С–Р·_СЃРїРё
+rvices                         СЃРєСѓ
 
-List_Of_Se        4 Service_na Назва_послуги_із_спи Services
-rvices              me         ску
+List_Of_Se        4 Service_na РќР°Р·РІР°_РїРѕСЃР»СѓРіРё_С–Р·_СЃРїРё Services
+rvices              me         СЃРєСѓ
 
-List_Of_Se        5 Service_pr Вартість
+List_Of_Se        5 Service_pr Р’Р°СЂС‚С–СЃС‚СЊ
 rvices              ice
 
-List_Of_Se        6 Service_im Номер_викон._співроб.
+List_Of_Se        6 Service_im РќРѕРјРµСЂ_РІРёРєРѕРЅ._СЃРїС–РІСЂРѕР±.
 rvices              plementer  
 
-Registrati        7 Reg_id     Номер_запису
+Registrati        7 Reg_id     РќРѕРјРµСЂ_Р·Р°РїРёСЃСѓ
 on
 
-Registratio       8 Reg_Client Записаний_клієнт
+Registratio       8 Reg_Client Р—Р°РїРёСЃР°РЅРёР№_РєР»С–С”РЅС‚
 on
 
-Registratio       9 Service_fo Послуга_із_запису
+Registratio       9 Service_fo РџРѕСЃР»СѓРіР°_С–Р·_Р·Р°РїРёСЃСѓ
 on                  r_registra
                     tion
 */
