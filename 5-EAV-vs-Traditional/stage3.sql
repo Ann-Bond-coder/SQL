@@ -1,4 +1,4 @@
---3.1 Створити таблицю описів листових значень.
+--3.1 РЎС‚РІРѕСЂРёС‚Рё С‚Р°Р±Р»РёС†СЋ РѕРїРёСЃС–РІ Р»РёСЃС‚РѕРІРёС… Р·РЅР°С‡РµРЅСЊ.
 CREATE TABLE LISTS (
 	ATTR_ID NUMBER(10),
 	LIST_VALUE_ID NUMBER(10),
@@ -16,8 +16,8 @@ ALTER TABLE LISTS ADD CONSTRAINT LISTS_ATTR_ID_FK
 Table altered.
 */    
 
---3.2 Для одного з атрибутних типів, який може містити кінцеву множину можливих 
--- значень, заповнити описи листових значень.
+--3.2 Р”Р»СЏ РѕРґРЅРѕРіРѕ Р· Р°С‚СЂРёР±СѓС‚РЅРёС… С‚РёРїС–РІ, СЏРєРёР№ РјРѕР¶Рµ РјС–СЃС‚РёС‚Рё РєС–РЅС†РµРІСѓ РјРЅРѕР¶РёРЅСѓ РјРѕР¶Р»РёРІРёС… 
+-- Р·РЅР°С‡РµРЅСЊ, Р·Р°РїРѕРІРЅРёС‚Рё РѕРїРёСЃРё Р»РёСЃС‚РѕРІРёС… Р·РЅР°С‡РµРЅСЊ.
 INSERT INTO LISTS(ATTR_ID, LIST_VALUE_ID, VALUE) 
 	VALUES(6, 1, 'Petro Lypin');
 INSERT INTO LISTS(ATTR_ID, LIST_VALUE_ID, VALUE) 
@@ -26,7 +26,7 @@ INSERT INTO LISTS(ATTR_ID, LIST_VALUE_ID, VALUE)
 	VALUES(6, 3, 'Karina Petrova');
 
 
---3.3 Отримати інформацію про листові значення.
+--3.3 РћС‚СЂРёРјР°С‚Рё С–РЅС„РѕСЂРјР°С†С–СЋ РїСЂРѕ Р»РёСЃС‚РѕРІС– Р·РЅР°С‡РµРЅРЅСЏ.
 SELECT O.CODE,A.ATTR_ID,A.CODE,A.NAME,L.LIST_VALUE_ID, L.VALUE
 	FROM OBJTYPE O, ATTRTYPE A, LISTS L
 	WHERE 	O.OBJECT_TYPE_ID = A.OBJECT_TYPE_ID 
@@ -36,12 +36,12 @@ SELECT O.CODE,A.ATTR_ID,A.CODE,A.NAME,L.LIST_VALUE_ID, L.VALUE
 /*
 CODE        ATTR_ID CODE       NAME                 LIST_VALUE_ID VALUE
 ---------- -------- ---------- -------------------- ------------- --------------------
-List_Of_Se        6 Service_im Номер_викон._співроб             1    Petro Lypin
+List_Of_Se        6 Service_im РќРѕРјРµСЂ_РІРёРєРѕРЅ._СЃРїС–РІСЂРѕР±             1    Petro Lypin
 rvices              plementer  .
 
-List_Of_Se        6 Service_im Номер_викон._співроб             3    Karina Petrova
+List_Of_Se        6 Service_im РќРѕРјРµСЂ_РІРёРєРѕРЅ._СЃРїС–РІСЂРѕР±             3    Karina Petrova
 rvices              plementer  .
 
-List_Of_Se        6 Service_im Номер_викон._співроб             2   Marina Kyleba
+List_Of_Se        6 Service_im РќРѕРјРµСЂ_РІРёРєРѕРЅ._СЃРїС–РІСЂРѕР±             2   Marina Kyleba
 rvices              plementer  .
 */
