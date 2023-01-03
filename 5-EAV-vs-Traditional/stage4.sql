@@ -1,4 +1,4 @@
---4.1 Створити таблицю описів екземплярів об'єктів.
+--4.1 РЎС‚РІРѕСЂРёС‚Рё С‚Р°Р±Р»РёС†СЋ РѕРїРёСЃС–РІ РµРєР·РµРјРїР»СЏСЂС–РІ РѕР±'С”РєС‚С–РІ.
 CREATE TABLE OBJECTS (
 	OBJECT_ID      NUMBER(20),
 	PARENT_ID      NUMBER(20),
@@ -20,8 +20,8 @@ ALTER TABLE OBJECTS ADD CONSTRAINT OBJECTS_OBJECT_TYPE_ID_FK
 Table altered.
 */   
     
---4.2 На основі вмісту двох рядків двох таблиць, заповнених у лабораторній 
---роботі No3, заповнити описи екземплярів об'єктів.
+--4.2 РќР° РѕСЃРЅРѕРІС– РІРјС–СЃС‚Сѓ РґРІРѕС… СЂСЏРґРєС–РІ РґРІРѕС… С‚Р°Р±Р»РёС†СЊ, Р·Р°РїРѕРІРЅРµРЅРёС… Сѓ Р»Р°Р±РѕСЂР°С‚РѕСЂРЅС–Р№ 
+--СЂРѕР±РѕС‚С– No3, Р·Р°РїРѕРІРЅРёС‚Рё РѕРїРёСЃРё РµРєР·РµРјРїР»СЏСЂС–РІ РѕР±'С”РєС‚С–РІ.
 INSERT INTO OBJECTS (OBJECT_ID,PARENT_ID,OBJECT_TYPE_ID,NAME,DESCRIPTION) 
 	VALUES (1,NULL,1,'Pedicure',NULL);
 INSERT INTO OBJECTS (OBJECT_ID,PARENT_ID,OBJECT_TYPE_ID,NAME,DESCRIPTION) 
@@ -32,8 +32,8 @@ INSERT INTO OBJECTS (OBJECT_ID,PARENT_ID,OBJECT_TYPE_ID,NAME,DESCRIPTION)
 INSERT INTO OBJECTS (OBJECT_ID,PARENT_ID,OBJECT_TYPE_ID,NAME,DESCRIPTION) 
 	VALUES (4,2,2,'Registration 2',NULL);
 
---4.3 Отримати колекцію екземплярів об'єктів для одного з об'єктних типів, 
---використовуючи його код.
+--4.3 РћС‚СЂРёРјР°С‚Рё РєРѕР»РµРєС†С–СЋ РµРєР·РµРјРїР»СЏСЂС–РІ РѕР±'С”РєС‚С–РІ РґР»СЏ РѕРґРЅРѕРіРѕ Р· РѕР±'С”РєС‚РЅРёС… С‚РёРїС–РІ, 
+--РІРёРєРѕСЂРёСЃС‚РѕРІСѓСЋС‡Рё Р№РѕРіРѕ РєРѕРґ.
 SELECT OBJECT_ID,NAME
 	FROM OBJECTS
 	WHERE OBJECT_TYPE_ID = 1;
@@ -44,8 +44,8 @@ OBJECT_ID NAME
         2 Highlighting
 */
 
---4.4 Отримати один екземпляр об'єкта заданого імені для одного з об'єктних типів,
---використовуючи його код.
+--4.4 РћС‚СЂРёРјР°С‚Рё РѕРґРёРЅ РµРєР·РµРјРїР»СЏСЂ РѕР±'С”РєС‚Р° Р·Р°РґР°РЅРѕРіРѕ С–РјРµРЅС– РґР»СЏ РѕРґРЅРѕРіРѕ Р· РѕР±'С”РєС‚РЅРёС… С‚РёРїС–РІ,
+--РІРёРєРѕСЂРёСЃС‚РѕРІСѓСЋС‡Рё Р№РѕРіРѕ РєРѕРґ.
 SELECT Services.OBJECT_ID,Services.NAME
 FROM OBJECTS Services, OBJTYPE 
 WHERE Services.OBJECT_ID = 2
